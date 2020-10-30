@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>RGB</title>
+    <style>
+        h1{
+            text-align: center;
+            font-size: 50px;
+        }
+        #cor{
+            width: 300px;
+            height: 300px;
+            position: relative;
+            left: 38.5%;
+            border: 2px solid;
+            background-color: rgb(0, 0, 0);
+        }
+        #entrada{
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        td{
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+    <h1>RGB</h1>
+    <div id="cor"></div>
+    <div id="entrada">
+        <table>
+            <tr>
+                <td>(R) Vermelho:</td>
+                <td><input type="range" id="red" min="0" max="255" value="0"/></td>
+                <td><input type="text" id="textRed" size="1" value="0" disabled/></td>
+            </tr>
+            <tr>
+                <td>(G) Verde:</td>
+                <td><input type="range" id="green" min="0" max="255" value="0"/></td>
+                <td><input type="text" id="textGreen" size="1" value="0" disabled/></td>
+            </tr>
+            <tr>
+                <td>(B) Azul:</td>
+                <td><input type="range" id="blue" min="0" max="255" value="0"/></td>
+                <td><input type="text" id="textBlue" size="1" value="0" disabled/></td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        window.addEventListener('load', start);
+        function start(){
+            let red = document.getElementById('red');
+            red.addEventListener('change', atualizar);
+            let green = document.getElementById('green');
+            green.addEventListener('change', atualizar);
+            let blue = document.getElementById('blue');
+            blue.addEventListener('change', atualizar);
+            function atualizar(){
+                let red = Number(document.getElementById('red').value);
+                document.getElementById('textRed').value = red;
+                let green = Number(document.getElementById('green').value);
+                document.getElementById('textGreen').value = green;
+                let blue = Number(document.getElementById('blue').value);
+                document.getElementById('textBlue').value = blue;
+                cor.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+            }
+        }
+    </script>
+</body>
+</html>
